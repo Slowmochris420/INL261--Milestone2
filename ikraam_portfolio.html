@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ikraam Sadek | Lecturer Portfolio</title>
+<style>
+  :root {
+    --black: #0a0a0f;
+    --navy: #0d0d2b;
+    --blue: #1a1aff;
+    --purple: #6b21a8;
+    --maroon: #7f1d1d;
+    --accent: #7c3aed;
+    --cyan: #06b6d4;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --card: #111127;
+    --glow: 0 0 20px rgba(124,58,237,0.5);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--black);color:var(--text);font-family:'Segoe UI',sans-serif;overflow-x:hidden;}
+
+  /* NAV */
+  nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,10,15,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(124,58,237,0.2);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:monospace;font-size:1.2rem;color:var(--cyan);letter-spacing:2px;}
+  .nav-links a{color:var(--muted);text-decoration:none;margin-left:1.5rem;font-size:0.9rem;transition:color 0.3s;}
+  .nav-links a:hover{color:var(--cyan);}
+
+  /* HERO */
+  #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:6rem 2rem 4rem;background:radial-gradient(ellipse at top,#1a0a2e 0%,var(--black) 70%);}
+  .avatar-wrap{position:relative;margin-bottom:2rem;}
+  .avatar-glow{position:absolute;inset:-20px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,0.4),transparent 70%);animation:pulseGlow 3s ease-in-out infinite;}
+  svg#avatar{filter:drop-shadow(0 0 18px rgba(124,58,237,0.7));animation:float 4s ease-in-out infinite;}
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+  @keyframes pulseGlow{0%,100%{opacity:0.6;transform:scale(1);}50%{opacity:1;transform:scale(1.08);}}
+  @keyframes blink{0%,90%,100%{transform:scaleY(1);}95%{transform:scaleY(0.08);}}
+  .eye-l,.eye-r{transform-origin:center;animation:blink 4s ease-in-out infinite;}
+  .eye-r{animation-delay:0.08s;}
+  @keyframes typing{from{width:0;}to{width:100%;}}
+  @keyframes caret{50%{border-color:transparent;}}
+  h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;background:linear-gradient(135deg,#fff,var(--cyan),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0.5rem;}
+  .tagline{font-family:monospace;font-size:1.1rem;color:var(--cyan);margin-bottom:1rem;overflow:hidden;white-space:nowrap;border-right:2px solid var(--cyan);width:fit-content;margin-inline:auto;animation:typing 2.5s steps(28,end) 0.5s both,caret 0.8s step-end infinite;}
+  .hero-sub{color:var(--muted);max-width:500px;line-height:1.7;margin-bottom:2rem;}
+  .cta-btn{padding:0.8rem 2rem;background:linear-gradient(135deg,var(--accent),var(--blue));border:none;border-radius:50px;color:#fff;font-size:1rem;cursor:pointer;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;}
+  .cta-btn:hover{transform:scale(1.05);box-shadow:var(--glow);}
+
+  /* SECTIONS */
+  section{padding:5rem 2rem;max-width:1100px;margin:0 auto;}
+  .section-title{font-family:monospace;font-size:1.8rem;color:var(--cyan);margin-bottom:0.3rem;}
+  .section-line{width:60px;height:3px;background:linear-gradient(90deg,var(--accent),var(--cyan));margin-bottom:2.5rem;border-radius:2px;}
+
+  /* ABOUT */
+  #about-wrap{background:linear-gradient(135deg,rgba(13,13,43,0.8),rgba(127,29,29,0.15));border:1px solid rgba(124,58,237,0.2);border-radius:16px;padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+  .about-item{display:flex;gap:1rem;align-items:flex-start;}
+  .about-icon{font-size:1.6rem;}
+  .about-item h3{color:var(--accent);font-size:0.85rem;font-family:monospace;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.3rem;}
+  .about-item p{color:var(--muted);font-size:0.95rem;line-height:1.6;}
+  .quote-block{grid-column:1/-1;border-left:3px solid var(--accent);padding-left:1.2rem;font-style:italic;color:var(--cyan);font-size:1.05rem;}
+
+  /* MODULES */
+  .modules-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;}
+  .module-card{background:var(--card);border:1px solid rgba(124,58,237,0.2);border-radius:10px;padding:1rem;text-align:center;cursor:default;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;position:relative;overflow:hidden;}
+  .module-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,58,237,0.1),rgba(6,182,212,0.05));opacity:0;transition:opacity 0.3s;}
+  .module-card:hover{transform:translateY(-6px);box-shadow:0 8px 30px rgba(124,58,237,0.3);border-color:var(--cyan);}
+  .module-card:hover::before{opacity:1;}
+  .module-code{font-family:monospace;font-size:1rem;font-weight:700;color:var(--cyan);}
+  .module-name{font-size:0.75rem;color:var(--muted);margin-top:0.3rem;}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1rem;}
+  .skill-badge{background:var(--card);border:1px solid rgba(124,58,237,0.25);border-radius:8px;padding:0.8rem;text-align:center;font-size:0.85rem;color:var(--text);transition:all 0.3s;}
+  .skill-badge:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 12px rgba(6,182,212,0.3);}
+  .skill-icon{font-size:1.5rem;margin-bottom:0.4rem;}
+
+  /* SUPERPOWER */
+  .power-card{background:linear-gradient(135deg,rgba(107,33,168,0.2),rgba(127,29,29,0.2));border:1px solid rgba(124,58,237,0.3);border-radius:16px;padding:2rem;text-align:center;}
+  .power-card h3{font-size:1.3rem;color:var(--cyan);margin-bottom:0.5rem;}
+  .power-card p{color:var(--muted);line-height:1.7;}
+
+  /* FUN FACT */
+  .funfact{display:flex;align-items:center;gap:1.5rem;background:linear-gradient(135deg,rgba(127,29,29,0.3),rgba(13,13,43,0.5));border:1px solid rgba(127,29,29,0.4);border-radius:16px;padding:2rem;margin-top:2rem;}
+  .funfact-icon{font-size:3rem;}
+  .funfact h3{color:var(--accent);font-family:monospace;margin-bottom:0.3rem;}
+  .funfact p{color:var(--muted);}
+
+  /* CONTACT */
+  #contact{text-align:center;}
+  .contact-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;}
+  .contact-link{padding:0.7rem 1.5rem;border:1px solid rgba(124,58,237,0.4);border-radius:50px;color:var(--text);text-decoration:none;font-size:0.9rem;transition:all 0.3s;font-family:monospace;}
+  .contact-link:hover{background:var(--accent);border-color:var(--accent);box-shadow:var(--glow);}
+
+  /* FOOTER */
+  footer{text-align:center;padding:2rem;color:var(--muted);font-size:0.8rem;border-top:1px solid rgba(124,58,237,0.15);font-family:monospace;}
+
+  /* SCROLL FADE */
+  .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .fade-in.visible{opacity:1;transform:none;}
+
+  @media(max-width:600px){
+    #about-wrap{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">&lt;IS /&gt;</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#modules">Modules</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="avatar-wrap">
+    <div class="avatar-glow"></div>
+    <svg id="avatar" width="200" height="220" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- Body / hoodie -->
+      <rect x="45" y="130" width="110" height="80" rx="18" fill="#3b0764"/>
+      <!-- Hoodie pocket -->
+      <rect x="75" y="168" width="50" height="28" rx="8" fill="#2e0650"/>
+      <!-- Code lines on hoodie -->
+      <rect x="82" y="176" width="20" height="3" rx="2" fill="#7c3aed" opacity="0.7"/>
+      <rect x="82" y="183" width="30" height="3" rx="2" fill="#06b6d4" opacity="0.5"/>
+      <rect x="82" y="190" width="15" height="3" rx="2" fill="#7c3aed" opacity="0.6"/>
+      <!-- Neck -->
+      <rect x="87" y="118" width="26" height="20" rx="6" fill="#92400e"/>
+      <!-- Head -->
+      <ellipse cx="100" cy="100" rx="42" ry="44" fill="#92400e"/>
+      <!-- Fade/hair top -->
+      <ellipse cx="100" cy="62" rx="42" ry="16" fill="#1a0a2e"/>
+      <rect x="58" y="60" width="84" height="18" rx="4" fill="#1a0a2e"/>
+      <!-- Hairline fade -->
+      <ellipse cx="100" cy="78" rx="38" ry="6" fill="#7c3400" opacity="0.3"/>
+      <!-- Ears -->
+      <ellipse cx="58" cy="102" rx="8" ry="10" fill="#92400e"/>
+      <ellipse cx="142" cy="102" rx="8" ry="10" fill="#92400e"/>
+      <!-- Eyes white -->
+      <ellipse cx="85" cy="100" rx="10" ry="11" fill="white"/>
+      <ellipse cx="115" cy="100" rx="10" ry="11" fill="white"/>
+      <!-- Iris -->
+      <ellipse class="eye-l" cx="85" cy="101" rx="6" ry="7" fill="#1a0a2e"/>
+      <ellipse class="eye-r" cx="115" cy="101" rx="6" ry="7" fill="#1a0a2e"/>
+      <!-- Pupil shine -->
+      <circle cx="87" cy="99" r="2" fill="white"/>
+      <circle cx="117" cy="99" r="2" fill="white"/>
+      <!-- Eyebrows -->
+      <path d="M75 88 Q85 83 95 87" stroke="#1a0a2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M105 87 Q115 83 125 88" stroke="#1a0a2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- Nose -->
+      <ellipse cx="100" cy="112" rx="4" ry="5" fill="#7c3400" opacity="0.5"/>
+      <!-- Smile -->
+      <path d="M88 122 Q100 132 112 122" stroke="#7c3400" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <!-- Laptop in hands -->
+      <rect x="30" y="165" width="60" height="38" rx="5" fill="#0d0d2b"/>
+      <rect x="33" y="168" width="54" height="28" rx="3" fill="#1a1a3e"/>
+      <!-- Code on laptop screen -->
+      <rect x="36" y="171" width="20" height="2.5" rx="1" fill="#7c3aed"/>
+      <rect x="36" y="176" width="35" height="2.5" rx="1" fill="#06b6d4"/>
+      <rect x="36" y="181" width="15" height="2.5" rx="1" fill="#7c3aed"/>
+      <rect x="36" y="186" width="28" height="2.5" rx="1" fill="#10b981"/>
+      <!-- Laptop base -->
+      <rect x="25" y="200" width="70" height="5" rx="2" fill="#0d0d2b"/>
+      <!-- Arm left -->
+      <rect x="40" y="140" width="22" height="50" rx="10" fill="#3b0764"/>
+      <!-- Arm right -->
+      <rect x="138" y="140" width="22" height="50" rx="10" fill="#3b0764"/>
+      <!-- Right hand slight -->
+      <ellipse cx="149" cy="190" rx="10" ry="8" fill="#92400e"/>
+      <!-- Glow ring around avatar -->
+      <circle cx="100" cy="110" r="90" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.3" stroke-dasharray="6 4"/>
+    </svg>
+  </div>
+
+  <h1>Ikraam Sadek</h1>
+  <p class="tagline">Ready to go at it whenever_</p>
+  <p class="hero-sub">Lecturer · Developer · Adrenaline Adventurer<br/>Turning curious minds into capable coders.</p>
+  <a href="#about" class="cta-btn">Explore Portfolio ↓</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fade-in">
+  <div class="section-title">// about.me</div>
+  <div class="section-line"></div>
+  <div id="about-wrap">
+    <div class="about-item">
+      <div class="about-icon">🎓</div>
+      <div>
+        <h3>Qualification</h3>
+        <p>Advanced Diploma in App Development, NQF-7 — Rosebank College</p>
+      </div>
+    </div>
+    <div class="about-item">
+      <div class="about-icon">💡</div>
+      <div>
+        <h3>Teaching Philosophy</h3>
+        <p>Engaging &amp; Interacting — learning happens through real conversation and doing.</p>
+      </div>
+    </div>
+    <div class="about-item">
+      <div class="about-icon">⚡</div>
+      <div>
+        <h3>Superpower</h3>
+        <p>Helpful &amp; Reliable — always in your corner when you need support.</p>
+      </div>
+    </div>
+    <div class="about-item">
+      <div class="about-icon">🪂</div>
+      <div>
+        <h3>Fun Fact</h3>
+        <p>Total adrenaline adventurer — the same energy goes into teaching!</p>
+      </div>
+    </div>
+    <div class="quote-block">
+      "After getting feedback, use it to do better." — Ikraam Sadek
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section id="modules" class="fade-in">
+  <div class="section-title">// modules.taught[]</div>
+  <div class="section-line"></div>
+  <div class="modules-grid">
+    <div class="module-card"><div class="module-code">PRG161</div><div class="module-name">Programming 1A</div></div>
+    <div class="module-card"><div class="module-code">PRG171</div><div class="module-name">Programming 1B</div></div>
+    <div class="module-card"><div class="module-code">PRG181</div><div class="module-name">Programming 1C</div></div>
+    <div class="module-card"><div class="module-code">PRG261</div><div class="module-name">Programming 2A</div></div>
+    <div class="module-card"><div class="module-code">PRG262</div><div class="module-name">Programming 2B</div></div>
+    <div class="module-card"><div class="module-code">PRG272</div><div class="module-name">Programming 2C</div></div>
+    <div class="module-card"><div class="module-code">PRG282</div><div class="module-name">Programming 2D</div></div>
+    <div class="module-card"><div class="module-code">SWT261</div><div class="module-name">Software Testing</div></div>
+    <div class="module-card"><div class="module-code">DBD171</div><div class="module-name">Databases 1B</div></div>
+    <div class="module-card"><div class="module-code">DBD181</div><div class="module-name">Databases 1C</div></div>
+    <div class="module-card"><div class="module-code">WPR161</div><div class="module-name">Web Programming</div></div>
+    <div class="module-card"><div class="module-code">INF271</div><div class="module-name">Informatics 2A</div></div>
+    <div class="module-card"><div class="module-code">INF281</div><div class="module-name">Informatics 2B</div></div>
+    <div class="module-card"><div class="module-code">PRL</div><div class="module-name">Programming Logic</div></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="fade-in">
+  <div class="section-title">// skills.stack</div>
+  <div class="section-line"></div>
+  <div class="skills-grid">
+    <div class="skill-badge"><div class="skill-icon">💻</div>App Dev</div>
+    <div class="skill-badge"><div class="skill-icon">🗄️</div>Databases</div>
+    <div class="skill-badge"><div class="skill-icon">🌐</div>Web Dev</div>
+    <div class="skill-badge"><div class="skill-icon">🧪</div>Software Testing</div>
+    <div class="skill-badge"><div class="skill-icon">🔢</div>Prog. Logic</div>
+    <div class="skill-badge"><div class="skill-icon">🤝</div>Mentorship</div>
+    <div class="skill-badge"><div class="skill-icon">⚙️</div>OOP</div>
+    <div class="skill-badge"><div class="skill-icon">🛠️</div>Problem Solving</div>
+  </div>
+
+  <div class="funfact" style="margin-top:2rem;">
+    <div class="funfact-icon">🪂</div>
+    <div>
+      <h3>Did you know?</h3>
+      <p>When Ikraam isn't debugging code or igniting curiosity in students, they're chasing the next adrenaline rush. The same fearless energy powers the classroom.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade-in">
+  <div class="section-title" style="text-align:center;">// connect.with(me)</div>
+  <div class="section-line" style="margin-inline:auto;"></div>
+  <p style="color:var(--muted);max-width:480px;margin:0 auto 1.5rem;line-height:1.7;">Got a question? Need guidance? Ikraam's always ready to engage. Drop a message and let's build something great together.</p>
+  <div class="contact-links">
+    <a href="mailto:ikraam@example.com" class="contact-link">📧 Email</a>
+    <a href="#" class="contact-link">💼 LinkedIn</a>
+    <a href="#" class="contact-link">🐙 GitHub</a>
+  </div>
+</section>
+
+<footer>
+  &lt;built with 💜 by students | Ikraam Sadek Portfolio 2025 /&gt;
+</footer>
+
+<script>
+  // Scroll fade-in
+  const obs = new IntersectionObserver(els => {
+    els.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold: 0.15});
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
