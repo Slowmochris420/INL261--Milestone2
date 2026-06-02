@@ -130,33 +130,42 @@
       <rect x="82" y="183" width="30" height="3" rx="2" fill="#06b6d4" opacity="0.5"/>
       <rect x="82" y="190" width="15" height="3" rx="2" fill="#7c3aed" opacity="0.6"/>
       <!-- Neck -->
-      <rect x="87" y="118" width="26" height="20" rx="6" fill="#92400e"/>
+      <rect x="87" y="118" width="26" height="20" rx="6" fill="#c68642"/>
       <!-- Head -->
       <ellipse cx="100" cy="100" rx="42" ry="44" fill="#92400e"/>
-      <!-- Fade/hair top -->
-      <ellipse cx="100" cy="62" rx="42" ry="16" fill="#1a0a2e"/>
-      <rect x="58" y="60" width="84" height="18" rx="4" fill="#1a0a2e"/>
-      <!-- Hairline fade -->
-      <ellipse cx="100" cy="78" rx="38" ry="6" fill="#7c3400" opacity="0.3"/>
+      <!-- Wavy Indian-style hair -->
+      <!-- Hair base covering top of head -->
+      <ellipse cx="100" cy="64" rx="43" ry="20" fill="#1a0a0a"/>
+      <rect x="57" y="62" width="86" height="22" rx="4" fill="#1a0a0a"/>
+      <!-- Wavy hair strands flowing over sides -->
+      <path d="M58 70 Q52 80 55 95 Q50 105 54 115" stroke="#2a1010" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M60 68 Q54 82 57 97 Q52 108 56 118" stroke="#1a0a0a" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M142 70 Q148 80 145 95 Q150 105 146 115" stroke="#2a1010" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M140 68 Q146 82 143 97 Q148 108 144 118" stroke="#1a0a0a" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <!-- Wavy top hair texture -->
+      <path d="M62 65 Q70 58 80 63 Q90 57 100 62 Q110 57 120 63 Q130 58 138 65" stroke="#2a1010" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M65 60 Q75 53 85 58 Q95 52 105 57 Q115 52 125 58 Q133 53 136 60" stroke="#1a0a0a" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <!-- Slight middle parting wave -->
+      <path d="M80 63 Q90 68 100 63 Q110 68 120 63" stroke="#3a1515" stroke-width="2" fill="none" stroke-linecap="round"/>
       <!-- Ears -->
-      <ellipse cx="58" cy="102" rx="8" ry="10" fill="#92400e"/>
-      <ellipse cx="142" cy="102" rx="8" ry="10" fill="#92400e"/>
+      <ellipse cx="58" cy="102" rx="8" ry="10" fill="#c68642"/>
+      <ellipse cx="142" cy="102" rx="8" ry="10" fill="#c68642"/>
       <!-- Eyes white -->
       <ellipse cx="85" cy="100" rx="10" ry="11" fill="white"/>
       <ellipse cx="115" cy="100" rx="10" ry="11" fill="white"/>
       <!-- Iris -->
-      <ellipse class="eye-l" cx="85" cy="101" rx="6" ry="7" fill="#1a0a2e"/>
-      <ellipse class="eye-r" cx="115" cy="101" rx="6" ry="7" fill="#1a0a2e"/>
+      <ellipse class="eye-l" cx="85" cy="101" rx="6" ry="7" fill="#1a0a0a"/>
+      <ellipse class="eye-r" cx="115" cy="101" rx="6" ry="7" fill="#1a0a0a"/>
       <!-- Pupil shine -->
       <circle cx="87" cy="99" r="2" fill="white"/>
       <circle cx="117" cy="99" r="2" fill="white"/>
-      <!-- Eyebrows -->
-      <path d="M75 88 Q85 83 95 87" stroke="#1a0a2e" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <path d="M105 87 Q115 83 125 88" stroke="#1a0a2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- Eyebrows (thicker, more defined) -->
+      <path d="M74 88 Q85 82 96 87" stroke="#1a0a0a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <path d="M104 87 Q115 82 126 88" stroke="#1a0a0a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
       <!-- Nose -->
-      <ellipse cx="100" cy="112" rx="4" ry="5" fill="#7c3400" opacity="0.5"/>
+      <ellipse cx="100" cy="112" rx="4" ry="5" fill="#a0652a" opacity="0.5"/>
       <!-- Smile -->
-      <path d="M88 122 Q100 132 112 122" stroke="#7c3400" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M88 122 Q100 132 112 122" stroke="#a0652a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
       <!-- Laptop in hands -->
       <rect x="30" y="165" width="60" height="38" rx="5" fill="#0d0d2b"/>
       <rect x="33" y="168" width="54" height="28" rx="3" fill="#1a1a3e"/>
@@ -172,7 +181,7 @@
       <!-- Arm right -->
       <rect x="138" y="140" width="22" height="50" rx="10" fill="#3b0764"/>
       <!-- Right hand slight -->
-      <ellipse cx="149" cy="190" rx="10" ry="8" fill="#92400e"/>
+      <ellipse cx="149" cy="190" rx="10" ry="8" fill="#c68642"/>
       <!-- Glow ring around avatar -->
       <circle cx="100" cy="110" r="90" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.3" stroke-dasharray="6 4"/>
     </svg>
@@ -268,6 +277,94 @@
     </div>
   </div>
 </section>
+
+<!-- TEACHING APPROACH -->
+<section id="approach" class="fade-in">
+  <div class="section-title">// teaching.approach()</div>
+  <div class="section-line"></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem;">
+    <div class="module-card" style="text-align:left;padding:1.4rem;">
+      <div style="font-size:1.8rem;margin-bottom:0.6rem;">🧩</div>
+      <h3 style="color:var(--cyan);font-family:monospace;margin-bottom:0.4rem;">Problem-First Learning</h3>
+      <p style="color:var(--muted);font-size:0.9rem;line-height:1.6;">Ikraam throws students into real problems before teaching theory — because the best way to understand a solution is to first feel the problem.</p>
+    </div>
+    <div class="module-card" style="text-align:left;padding:1.4rem;">
+      <div style="font-size:1.8rem;margin-bottom:0.6rem;">🔄</div>
+      <h3 style="color:var(--cyan);font-family:monospace;margin-bottom:0.4rem;">Feedback Loops</h3>
+      <p style="color:var(--muted);font-size:0.9rem;line-height:1.6;">Every submission is a conversation. Feedback isn't just a grade — it's a roadmap. Students are encouraged to iterate, improve, and resubmit.</p>
+    </div>
+    <div class="module-card" style="text-align:left;padding:1.4rem;">
+      <div style="font-size:1.8rem;margin-bottom:0.6rem;">💬</div>
+      <h3 style="color:var(--cyan);font-family:monospace;margin-bottom:0.4rem;">Open-Door Policy</h3>
+      <p style="color:var(--muted);font-size:0.9rem;line-height:1.6;">No question is too small. Ikraam believes accessibility is key — students should never feel stuck alone. Help is always one message away.</p>
+    </div>
+    <div class="module-card" style="text-align:left;padding:1.4rem;">
+      <div style="font-size:1.8rem;margin-bottom:0.6rem;">🚀</div>
+      <h3 style="color:var(--cyan);font-family:monospace;margin-bottom:0.4rem;">Industry-Aligned</h3>
+      <p style="color:var(--muted);font-size:0.9rem;line-height:1.6;">Content is always tied back to real-world dev practices. From version control to clean code principles — students graduate ready for the job market.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline" class="fade-in">
+  <div class="section-title">// career.timeline[]</div>
+  <div class="section-line"></div>
+  <div style="position:relative;padding-left:2rem;border-left:2px solid rgba(124,58,237,0.3);">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">🎓 Rosebank College</div>
+      <div class="tl-title">Advanced Diploma in App Development — NQF-7</div>
+      <div class="tl-desc">Specialized in application development, software engineering principles, and database design. Graduated with a strong foundation in both theory and practical development.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">💼 Early Career</div>
+      <div class="tl-title">Junior Developer & Tutor</div>
+      <div class="tl-desc">Started bridging the gap between industry and education — realizing that teaching was just as rewarding as building. Began mentoring peers informally before moving into lecturing.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">🏫 Lecturing</div>
+      <div class="tl-title">Full-Time Lecturer — Programming & Databases</div>
+      <div class="tl-desc">Took on a full lecturing role covering a wide range of modules — from first-year programming logic to second-year software testing and informatics. Known for high energy and hands-on sessions.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">📍 Present</div>
+      <div class="tl-title">Senior Lecturer & Mentor</div>
+      <div class="tl-desc">Currently teaching 14+ modules, mentoring student dev teams, and integrating modern tools like AI-assisted development into the curriculum. Always evolving, always engaging.</div>
+    </div>
+  </div>
+</section>
+
+<!-- STUDENT SHOUTOUTS -->
+<section id="shoutouts" class="fade-in">
+  <div class="section-title">// students.say()</div>
+  <div class="section-line"></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;">
+    <div class="module-card" style="text-align:left;padding:1.4rem;">
+      <p style="color:var(--text);font-style:italic;line-height:1.7;margin-bottom:1rem;">"Ikraam never makes you feel dumb for asking questions. Best lecturer I've had — always available and always real with you."</p>
+      <span style="color:var(--accent);font-family:monospace;font-size:0.85rem;">— PRG261 Student</span>
+    </div>
+    <div class="module-card" style="text-align:left;padding:1.4rem;">
+      <p style="color:var(--text);font-style:italic;line-height:1.7;margin-bottom:1rem;">"The feedback I got on my projects actually helped me grow. Not just 'good job' — real, detailed advice I could act on."</p>
+      <span style="color:var(--accent);font-family:monospace;font-size:0.85rem;">— DBD181 Student</span>
+    </div>
+    <div class="module-card" style="text-align:left;padding:1.4rem;">
+      <p style="color:var(--text);font-style:italic;line-height:1.7;margin-bottom:1rem;">"His energy is unmatched. You can tell he actually loves what he does. Made me fall in love with programming."</p>
+      <span style="color:var(--accent);font-family:monospace;font-size:0.85rem;">— PRG161 Student</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tl-item{position:relative;margin-bottom:2.2rem;padding-left:1.2rem;}
+  .tl-dot{position:absolute;left:-2.45rem;top:0.3rem;width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--cyan));box-shadow:0 0 10px rgba(124,58,237,0.6);}
+  .tl-year{font-family:monospace;font-size:0.85rem;color:var(--cyan);margin-bottom:0.3rem;}
+  .tl-title{font-weight:700;color:var(--text);margin-bottom:0.4rem;font-size:1rem;}
+  .tl-desc{color:var(--muted);font-size:0.9rem;line-height:1.6;}
+</style>
 
 <!-- CONTACT -->
 <section id="contact" class="fade-in">
