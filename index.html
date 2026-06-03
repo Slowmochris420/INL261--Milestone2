@@ -36,10 +36,6 @@
   .speech-bubble{
     position:absolute;
     right:-20.5rem;
-
-
-
-
     top:1.2rem;
     width:min(22rem, 38vw);
     max-width:22rem;
@@ -272,12 +268,33 @@
 <section id="hero">
   <div class="avatar-wrap">
     <div class="avatar-glow"></div>
+
+    <div class="speech-bubble" id="heroSpeech" aria-hidden="true">
+      <div class="speech-text">
+        Good day my name is Ikraam Sadek . I'm a lecturer at Belgium Campus itversity.<br/>
+        Here is some more information about me and what i do. Thank you
+      </div>
+    </div>
+
     <svg id="avatar" width="200" height="220" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
-      <!-- Body / hoodie -->
-      <rect x="45" y="130" width="110" height="80" rx="18" fill="#3b0764"/>
-      <!-- Hoodie pocket -->
-      <rect x="75" y="168" width="50" height="28" rx="8" fill="#2e0650"/>
-      <!-- Code lines on hoodie -->
+
+
+
+
+
+      <!-- Body / formal blazer -->
+      <rect x="45" y="130" width="110" height="80" rx="18" fill="#121626"/>
+      <!-- Blazer lapels -->
+      <path d="M97 130 L92 210" stroke="#3b0764" stroke-width="6" stroke-linecap="round"/>
+      <path d="M103 130 L108 210" stroke="#3b0764" stroke-width="6" stroke-linecap="round"/>
+      <!-- Chest pocket -->
+      <rect x="78" y="155" width="44" height="22" rx="8" fill="#0f1230"/>
+      <rect x="85" y="160" width="30" height="6" rx="3" fill="#7c3aed" opacity="0.7"/>
+      <!-- Tie -->
+      <path d="M100 168 L90 210 L110 210 Z" fill="#7f1d1d" opacity="0.95"/>
+      <path d="M100 172 L95 210" stroke="#06b6d4" stroke-width="2" opacity="0.6"/>
+
+      <!-- Code lines on blazer (kept) -->
       <rect x="82" y="176" width="20" height="3" rx="2" fill="#7c3aed" opacity="0.7"/>
       <rect x="82" y="183" width="30" height="3" rx="2" fill="#06b6d4" opacity="0.5"/>
       <rect x="82" y="190" width="15" height="3" rx="2" fill="#7c3aed" opacity="0.6"/>
