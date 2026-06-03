@@ -572,7 +572,11 @@
     const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
     bar.style.width = pct + '%';
   });
-
+ // Show hero speech bubble on load
+  const bubble = document.getElementById('heroSpeech');
+  if (bubble) {
+    requestAnimationFrame(() => bubble.classList.add('visible'));
+  }
   // Floating particles
   const container = document.getElementById('particles');
   const colors = ['#7c3aed','#06b6d4','#7f1d1d','#1a1aff'];
