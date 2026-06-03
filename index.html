@@ -29,8 +29,9 @@
   .nav-links a:hover{color:var(--cyan);}
 
   /* HERO */
-  #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:6rem 2rem 4rem;background:radial-gradient(ellipse at top,#1a0a2e 0%,var(--black) 70%);}
+  #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:6rem 2rem 4rem;background:radial-gradient(ellipse at top,#1a0a2e 0%,var(--black) 70%);position:relative;}
   .avatar-wrap{position:relative;margin-bottom:2rem;}
+  .avatar-glow{position:absolute;inset:-20px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,0.4),transparent 70%);animation:pulseGlow 3s ease-in-out infinite;}
 
   /* SPEECH BUBBLE (fixed to avatar, responsive, animated) */
   .speech-bubble{
@@ -130,8 +131,8 @@
     }
   }
 
-  .avatar-glow{position:absolute;inset:-20px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,0.4),transparent 70%);animation:pulseGlow 3s ease-in-out infinite;}
   svg#avatar{filter:drop-shadow(0 0 18px rgba(124,58,237,0.7));animation:float 4s ease-in-out infinite;}
+
   @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
   @keyframes pulseGlow{0%,100%{opacity:0.6;transform:scale(1);}50%{opacity:1;transform:scale(1.08);}}
   @keyframes blink{0%,90%,100%{transform:scaleY(1);}95%{transform:scaleY(0.08);}}
@@ -272,87 +273,81 @@
     <div class="speech-bubble" id="heroSpeech" aria-hidden="true">
       <div class="speech-text">
         Good day my name is Ikraam Sadek . I'm a lecturer at Belgium Campus itversity.<br/>
-        Here is some more information about me and what i do. Thank you
+        Here is some more information about me and what i do.
       </div>
     </div>
 
     <svg id="avatar" width="200" height="220" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
 
-
-
-
-
-      <!-- Body / formal blazer -->
-      <rect x="45" y="130" width="110" height="80" rx="18" fill="#121626"/>
-      <!-- Blazer lapels -->
-      <path d="M97 130 L92 210" stroke="#3b0764" stroke-width="6" stroke-linecap="round"/>
-      <path d="M103 130 L108 210" stroke="#3b0764" stroke-width="6" stroke-linecap="round"/>
-      <!-- Chest pocket -->
-      <rect x="78" y="155" width="44" height="22" rx="8" fill="#0f1230"/>
-      <rect x="85" y="160" width="30" height="6" rx="3" fill="#7c3aed" opacity="0.7"/>
-      <!-- Tie -->
-      <path d="M100 168 L90 210 L110 210 Z" fill="#7f1d1d" opacity="0.95"/>
-      <path d="M100 172 L95 210" stroke="#06b6d4" stroke-width="2" opacity="0.6"/>
-
-      <!-- Code lines on blazer (kept) -->
-      <rect x="82" y="176" width="20" height="3" rx="2" fill="#7c3aed" opacity="0.7"/>
-      <rect x="82" y="183" width="30" height="3" rx="2" fill="#06b6d4" opacity="0.5"/>
-      <rect x="82" y="190" width="15" height="3" rx="2" fill="#7c3aed" opacity="0.6"/>
+      <!-- Blazer body -->
+      <rect x="38" y="128" width="124" height="85" rx="18" fill="#1e1e3a"/>
+      <!-- Jacket lapels left -->
+      <polygon points="100,140 76,128 65,158 100,150" fill="#2d2d5a"/>
+      <!-- Jacket lapels right -->
+      <polygon points="100,140 124,128 135,158 100,150" fill="#2d2d5a"/>
+      <!-- Button-up shirt underneath -->
+      <rect x="86" y="128" width="28" height="32" rx="3" fill="#e8e8f0"/>
+      <!-- Shirt buttons -->
+      <circle cx="100" cy="136" r="2" fill="#9090b0"/>
+      <circle cx="100" cy="143" r="2" fill="#9090b0"/>
+      <circle cx="100" cy="150" r="2" fill="#9090b0"/>
+      <!-- Collar points -->
+      <polygon points="100,133 87,128 91,142" fill="#d0d0e8"/>
+      <polygon points="100,133 113,128 109,142" fill="#d0d0e8"/>
       <!-- Neck -->
-      <rect x="87" y="118" width="26" height="20" rx="6" fill="#c68642"/>
+      <rect x="87" y="116" width="26" height="20" rx="6" fill="#b5722a"/>
       <!-- Head -->
-      <ellipse cx="100" cy="100" rx="42" ry="44" fill="#92400e"/>
-      <!-- Wavy Indian-style hair -->
-      <!-- Hair base covering top of head -->
-      <ellipse cx="100" cy="64" rx="43" ry="20" fill="#1a0a0a"/>
-      <rect x="57" y="62" width="86" height="22" rx="4" fill="#1a0a0a"/>
-      <!-- Wavy hair strands flowing over sides -->
-      <path d="M58 70 Q52 80 55 95 Q50 105 54 115" stroke="#2a1010" stroke-width="8" fill="none" stroke-linecap="round"/>
-      <path d="M60 68 Q54 82 57 97 Q52 108 56 118" stroke="#1a0a0a" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <path d="M142 70 Q148 80 145 95 Q150 105 146 115" stroke="#2a1010" stroke-width="8" fill="none" stroke-linecap="round"/>
-      <path d="M140 68 Q146 82 143 97 Q148 108 144 118" stroke="#1a0a0a" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <!-- Wavy top hair texture -->
-      <path d="M62 65 Q70 58 80 63 Q90 57 100 62 Q110 57 120 63 Q130 58 138 65" stroke="#2a1010" stroke-width="5" fill="none" stroke-linecap="round"/>
-      <path d="M65 60 Q75 53 85 58 Q95 52 105 57 Q115 52 125 58 Q133 53 136 60" stroke="#1a0a0a" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <!-- Slight middle parting wave -->
-      <path d="M80 63 Q90 68 100 63 Q110 68 120 63" stroke="#3a1515" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="100" cy="96" rx="41" ry="43" fill="#b5722a"/>
+      <!-- Short dark hair -->
+      <ellipse cx="100" cy="58" rx="41" ry="17" fill="#110606"/>
+      <rect x="59" y="56" width="82" height="20" rx="3" fill="#110606"/>
+      <rect x="59" y="68" width="14" height="22" rx="4" fill="#1a0808"/>
+      <rect x="127" y="68" width="14" height="22" rx="4" fill="#1a0808"/>
+      <path d="M64 60 Q74 52 84 57 Q92 51 100 56 Q108 51 116 57 Q126 52 136 60" stroke="#1a0808" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M66 55 Q76 48 86 53 Q93 47 100 52 Q107 47 114 53 Q124 48 134 55" stroke="#110606" stroke-width="5" fill="none" stroke-linecap="round"/>
       <!-- Ears -->
-      <ellipse cx="58" cy="102" rx="8" ry="10" fill="#c68642"/>
-      <ellipse cx="142" cy="102" rx="8" ry="10" fill="#c68642"/>
+      <ellipse cx="59" cy="98" rx="7" ry="9" fill="#b5722a"/>
+      <ellipse cx="141" cy="98" rx="7" ry="9" fill="#b5722a"/>
       <!-- Eyes white -->
-      <ellipse cx="85" cy="100" rx="10" ry="11" fill="white"/>
-      <ellipse cx="115" cy="100" rx="10" ry="11" fill="white"/>
+      <ellipse cx="85" cy="96" rx="9.5" ry="10.5" fill="white"/>
+      <ellipse cx="115" cy="96" rx="9.5" ry="10.5" fill="white"/>
       <!-- Iris -->
-      <ellipse class="eye-l" cx="85" cy="101" rx="6" ry="7" fill="#1a0a0a"/>
-      <ellipse class="eye-r" cx="115" cy="101" rx="6" ry="7" fill="#1a0a0a"/>
+      <ellipse class="eye-l" cx="85" cy="97" rx="6" ry="7" fill="#110606"/>
+      <ellipse class="eye-r" cx="115" cy="97" rx="6" ry="7" fill="#110606"/>
       <!-- Pupil shine -->
-      <circle cx="87" cy="99" r="2" fill="white"/>
-      <circle cx="117" cy="99" r="2" fill="white"/>
-      <!-- Eyebrows (thicker, more defined) -->
-      <path d="M74 88 Q85 82 96 87" stroke="#1a0a0a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <path d="M104 87 Q115 82 126 88" stroke="#1a0a0a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <circle cx="87" cy="95" r="2" fill="white"/>
+      <circle cx="117" cy="95" r="2" fill="white"/>
+      <!-- Eyebrows -->
+      <path d="M74 84 Q85 78 96 83" stroke="#110606" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <path d="M104 83 Q115 78 126 84" stroke="#110606" stroke-width="3.5" fill="none" stroke-linecap="round"/>
       <!-- Nose -->
-      <ellipse cx="100" cy="112" rx="4" ry="5" fill="#a0652a" opacity="0.5"/>
+      <path d="M97 105 Q95 112 92 114 Q100 117 108 114 Q105 112 103 105" fill="#8a5018" opacity="0.35"/>
+      <ellipse cx="100" cy="107" rx="4.5" ry="5" fill="#8a5018" opacity="0.2"/>
       <!-- Smile -->
-      <path d="M88 122 Q100 132 112 122" stroke="#a0652a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <!-- Laptop in hands -->
-      <rect x="30" y="165" width="60" height="38" rx="5" fill="#0d0d2b"/>
-      <rect x="33" y="168" width="54" height="28" rx="3" fill="#1a1a3e"/>
-      <!-- Code on laptop screen -->
-      <rect x="36" y="171" width="20" height="2.5" rx="1" fill="#7c3aed"/>
-      <rect x="36" y="176" width="35" height="2.5" rx="1" fill="#06b6d4"/>
-      <rect x="36" y="181" width="15" height="2.5" rx="1" fill="#7c3aed"/>
-      <rect x="36" y="186" width="28" height="2.5" rx="1" fill="#10b981"/>
-      <!-- Laptop base -->
-      <rect x="25" y="200" width="70" height="5" rx="2" fill="#0d0d2b"/>
-      <!-- Arm left -->
-      <rect x="40" y="140" width="22" height="50" rx="10" fill="#3b0764"/>
-      <!-- Arm right -->
-      <rect x="138" y="140" width="22" height="50" rx="10" fill="#3b0764"/>
-      <!-- Right hand slight -->
-      <ellipse cx="149" cy="190" rx="10" ry="8" fill="#c68642"/>
-      <!-- Glow ring around avatar -->
-      <circle cx="100" cy="110" r="90" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.3" stroke-dasharray="6 4"/>
+      <path d="M89 122 Q100 131 111 122" stroke="#8a4010" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <!-- Beard / moustache -->
+      <path d="M90 116 Q95 112 100 114 Q105 112 110 116" stroke="#3a1a08" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.55"/>
+      <ellipse cx="100" cy="125" rx="14" ry="7" fill="#3a1a08" opacity="0.3"/>
+      <path d="M72 108 Q68 116 70 124 Q76 130 85 132" stroke="#3a1a08" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.3"/>
+      <path d="M128 108 Q132 116 130 124 Q124 130 115 132" stroke="#3a1a08" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.3"/>
+      <rect x="63" y="104" width="8" height="18" rx="3" fill="#3a1a08" opacity="0.3"/>
+      <rect x="129" y="104" width="8" height="18" rx="3" fill="#3a1a08" opacity="0.3"/>
+      <circle cx="93" cy="124" r="1.3" fill="#3a1a08" opacity="0.35"/>
+      <circle cx="97" cy="127" r="1.2" fill="#3a1a08" opacity="0.3"/>
+      <circle cx="100" cy="128" r="1.3" fill="#3a1a08" opacity="0.35"/>
+      <circle cx="103" cy="127" r="1.2" fill="#3a1a08" opacity="0.3"/>
+      <circle cx="107" cy="124" r="1.3" fill="#3a1a08" opacity="0.35"/>
+      <!-- Arms -->
+      <rect x="33" y="138" width="22" height="50" rx="10" fill="#1e1e3a"/>
+      <rect x="145" y="138" width="22" height="50" rx="10" fill="#1e1e3a"/>
+      <!-- Shirt cuffs -->
+      <rect x="32" y="180" width="24" height="10" rx="5" fill="#d0d0e8"/>
+      <rect x="144" y="180" width="24" height="10" rx="5" fill="#d0d0e8"/>
+      <!-- Hands -->
+      <ellipse cx="44" cy="193" rx="10" ry="8" fill="#b5722a"/>
+      <ellipse cx="156" cy="193" rx="10" ry="8" fill="#b5722a"/>
+      <!-- Glow ring -->
+      <circle cx="100" cy="108" r="90" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.3" stroke-dasharray="6 4"/>
     </svg>
   </div>
 
