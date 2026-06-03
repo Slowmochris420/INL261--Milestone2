@@ -98,6 +98,52 @@
   .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
   .fade-in.visible{opacity:1;transform:none;}
 
+  /* PARTICLES */
+  #particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden;}
+  .particle{position:absolute;border-radius:50%;animation:drift linear infinite;opacity:0.15;}
+  @keyframes drift{0%{transform:translateY(100vh) rotate(0deg);opacity:0;}10%{opacity:0.15;}90%{opacity:0.1;}100%{transform:translateY(-10vh) rotate(720deg);opacity:0;}}
+
+  /* GLITCH TITLE */
+  h1{position:relative;}
+  h1::before,h1::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;background:linear-gradient(135deg,#fff,var(--cyan),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  h1::before{animation:glitch1 4s infinite;clip-path:polygon(0 0,100% 0,100% 35%,0 35%);}
+  h1::after{animation:glitch2 4s infinite;clip-path:polygon(0 65%,100% 65%,100% 100%,0 100%);}
+  @keyframes glitch1{0%,90%,100%{transform:translate(0);}92%{transform:translate(-3px,1px);}94%{transform:translate(3px,-1px);}96%{transform:translate(-2px,2px);}}
+  @keyframes glitch2{0%,90%,100%{transform:translate(0);}92%{transform:translate(3px,-1px);}94%{transform:translate(-3px,1px);}96%{transform:translate(2px,-2px);}}
+
+  /* MODULE CARD RIPPLE */
+  .module-card{overflow:hidden;}
+  .module-card::after{content:'';position:absolute;width:0;height:0;background:rgba(6,182,212,0.2);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);transition:width 0.5s,height 0.5s,opacity 0.5s;opacity:0;}
+  .module-card:hover::after{width:200px;height:200px;opacity:1;}
+
+  /* SKILL BADGE POP */
+  .skill-badge{animation:popIn 0.5s ease both;}
+  @keyframes popIn{0%{transform:scale(0.7);opacity:0;}80%{transform:scale(1.05);}100%{transform:scale(1);opacity:1;}}
+
+  /* NEON BORDER PULSE on about-wrap */
+  #about-wrap{animation:borderPulse 4s ease-in-out infinite;}
+  @keyframes borderPulse{0%,100%{box-shadow:0 0 10px rgba(124,58,237,0.2);}50%{box-shadow:0 0 30px rgba(124,58,237,0.5),0 0 60px rgba(6,182,212,0.2);}}
+
+  /* TIMELINE DOT PING */
+  .tl-dot::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--cyan);animation:ping 2s ease-out infinite;opacity:0;}
+  @keyframes ping{0%{transform:scale(1);opacity:0.6;}100%{transform:scale(2.2);opacity:0;}}
+
+  /* SCROLL PROGRESS BAR */
+  #progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--cyan));z-index:200;width:0%;transition:width 0.1s;}
+
+  /* HERO AURORA BG */
+  #hero::after{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(107,33,168,0.15),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);animation:aurora 6s ease-in-out infinite;pointer-events:none;}
+  @keyframes aurora{0%,100%{transform:translate(-50%,-50%) scale(1);}50%{transform:translate(-50%,-50%) scale(1.3);}}
+
+  /* QUOTE SHIMMER */
+  .quote-block{background-size:200% auto;animation:shimmer 4s linear infinite;}
+  @keyframes shimmer{0%{background-position:0% center;}100%{background-position:200% center;}}
+
+  /* SECTION TITLE TYPEWRITER */
+  .section-title{overflow:hidden;white-space:nowrap;}
+  .section-title.typed{animation:typeTitle 0.8s steps(20,end) both;}
+  @keyframes typeTitle{from{width:0;}to{width:100%;}}
+
   @media(max-width:600px){
     #about-wrap{grid-template-columns:1fr;}
     .nav-links{display:none;}
@@ -105,6 +151,9 @@
 </style>
 </head>
 <body>
+
+<div id="progress"></div>
+<div id="particles"></div>
 
 <nav>
   <div class="logo">&lt;IS /&gt;</div>
@@ -187,7 +236,7 @@
     </svg>
   </div>
 
-  <h1>Ikraam Sadek</h1>
+  <h1 data-text="Ikraam Sadek">Ikraam Sadek</h1>
   <p class="tagline">Ready to go at it whenever_</p>
   <p class="hero-sub">Lecturer · Developer · Adrenaline Adventurer<br/>Turning curious minds into capable coders.</p>
   <a href="#about" class="cta-btn">Explore Portfolio ↓</a>
@@ -385,9 +434,44 @@
 <script>
   // Scroll fade-in
   const obs = new IntersectionObserver(els => {
-    els.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    els.forEach(e => {
+      if(e.isIntersecting) {
+        e.target.classList.add('visible');
+        // Typewriter for section titles
+        e.target.querySelectorAll('.section-title').forEach(t => t.classList.add('typed'));
+        // Stagger skill badges
+        e.target.querySelectorAll('.skill-badge').forEach((b,i) => b.style.animationDelay = (i*0.08)+'s');
+      }
+    });
   }, {threshold: 0.15});
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Scroll progress bar
+  const bar = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    bar.style.width = pct + '%';
+  });
+
+  // Floating particles
+  const container = document.getElementById('particles');
+  const colors = ['#7c3aed','#06b6d4','#7f1d1d','#1a1aff'];
+  for(let i=0;i<28;i++){
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const sz = Math.random()*4+2;
+    p.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*14+8}s;animation-delay:${Math.random()*8}s;`;
+    container.appendChild(p);
+  }
+
+  // Module card ripple cursor tracking
+  document.querySelectorAll('.module-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX-r.left)+'px');
+      card.style.setProperty('--my', (e.clientY-r.top)+'px');
+    });
+  });
 </script>
 </body>
 </html>
